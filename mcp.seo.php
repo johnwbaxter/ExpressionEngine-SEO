@@ -67,5 +67,5 @@ class Seo_mcp {
 }
 // END CLASS
 
-/* End of file mcp.warranty.php */
+/* End of file mcp.seo.php */
 /* Location: ./system/expressionengine/thirdparty/seo/mcp.seo.php */
