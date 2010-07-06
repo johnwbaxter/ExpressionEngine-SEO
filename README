@@ -1,0 +1,29 @@
+Quick Usage Guide:
+
+1) Global Options - Default Values:
+	a) Default Title 		- The title tag content to use if no title tag is found
+	b) Default Keywords 	- The keywords to use if no keyword content is found
+	c) Default Description 	- The description content to use if no description is found
+
+2) Global Options - Additional Options
+	a) Prepend to all title tags 	 - Any content to add before all site title tags created via the module. You may need to add spaces after the text as necessary
+	b) Append to all title tags		 - Any content to add after all site title tags created via the module. You may need to add spaces before the text as necessary
+	c) Visbility to robots (privacy) - Set the ROBOTS meta tag as appropriate
+
+3) Tags - Sample tags. Note that any parameters surrounded by square brackets "[ ]" are optional. Square brackets seen below should not be used within templates.
+	a) {exp:seo:title entry_id="{entry_id}" [prepend="override prepend"] [append="override append"]}
+		Sample Output: An Article - MySite.com
+		Note that use of prepend / append parameters will override the global append / prepend options
+		
+	b) {exp:seo:keywords entry_id="{entry_id}"}
+		Sample Output: these,are,my,keywords
+		
+	c) {exp:seo:description entry_id="{entry_id}"}
+		Sample Output: This is my short description that will show up in the SERPS
+		
+	d) {exp:seo:cononical url="{title_permlink='some/template'}"}
+		Sample Output: <link rel="canonical" href="http://mysite.com/template/a_specific_article" />
+		
+	e) {exp:seo:privacy}
+		Sample Output: <meta name="robots" content="index,follow" />
+		
