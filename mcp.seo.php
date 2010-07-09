@@ -16,6 +16,8 @@ class Seo_mcp {
 						  'default_description' => ''
 						  );
 	
+	var $usedefaults = false;
+	
 	function Seo_mcp()
 	{
 		// Make a local reference to the ExpressionEngine super object
@@ -28,16 +30,21 @@ class Seo_mcp {
 			foreach($res->result_array() as $row) {
 				$this->options[$row['key']] = $row['value'];
 			}
+			$this->usedefaults = false;
 		} else {
 			//Revert to defaults if no results found
-			$this->options = $this->defaults;
+			$this->usedefaults = true;
 		}
 	}
 	
 	function index() {
 		$this->EE->cp->set_variable('cp_page_title', $this->EE->lang->line('seo_module_name'));
 		
-		return $this->EE->load->view('index', $this->options, TRUE);
+		if($this->usedefaults) {
+			return $this->EE->load->view('index', $this->defaults, TRUE);
+		} else {
+			return $this->EE->load->view('index', $this->options, TRUE);
+		}
 	}
 	
 	function update() {
@@ -60,7 +67,7 @@ class Seo_mcp {
 				$this->EE->db->query($add_option);
 			}
 		}
-		
+
 		$this->EE->session->set_flashdata('message_success', $this->EE->lang->line('options_updated')); //not working?
 		$this->EE->functions->redirect(BASE.AMP.'C=addons_modules'.AMP.'M=show_module_cp'.AMP.'module=seo');
 	}
