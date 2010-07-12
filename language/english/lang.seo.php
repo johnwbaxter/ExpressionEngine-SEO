@@ -22,7 +22,12 @@ $lang = array(
 	'least_private'				=> 'Least Private',
 	'default_title'				=> 'Default Title',
 	'default_keywords'			=> 'Default Keywords',
-	'default_description'		=> 'Default Description'
+	'default_description'		=> 'Default Description',
+	'use_default_title'			=> 'Use Default Title?',
+	'use_default_keywords'		=> 'Use Default Keywords?',
+	'use_default_description'	=> 'Use Default Description?',
+	'yes'						=> 'Yes',
+	'no'						=> 'No'
 );
 
 /* End of file lang.seo.php */

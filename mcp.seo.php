@@ -13,7 +13,10 @@ class Seo_mcp {
 						  'robots' => 'follow,index',
 						  'default_title' => '',
 						  'default_keywords' => '',
-						  'default_description' => ''
+						  'default_description' => '',
+						  'use_default_title' => '',
+						  'use_default_keywords' => '',
+						  'use_default_description' => ''
 						  );
 	
 	var $usedefaults = false;
@@ -67,7 +70,7 @@ class Seo_mcp {
 				$this->EE->db->query($add_option);
 			}
 		}
-
+		
 		$this->EE->session->set_flashdata('message_success', $this->EE->lang->line('options_updated')); //not working?
 		$this->EE->functions->redirect(BASE.AMP.'C=addons_modules'.AMP.'M=show_module_cp'.AMP.'module=seo');
 	}

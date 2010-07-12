@@ -74,7 +74,7 @@ class Seo_tab {
 			'field_ta_rows'		   => 5,
 			'field_channel_id'     => $channel_id
 		);
-		
+		//$this->EE->cp->add_to_head('<!-- im totally adding this to head. just watch me. look. its awesome. -->');
 		return $settings;
 	}
 	

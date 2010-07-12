@@ -4,15 +4,24 @@
 	
 	<?=form_fieldset('Default Values')?>
 		<p style="margin-bottom:15px;">
-			<?=form_label(lang('default_title'), 'default_title')?> <?=form_input('default_title', $default_title, 'id="default_title"')?>
+			<?=form_label(lang('default_title'), 'default_title')?> <?=form_input('default_title', $default_title, 'id="default_title"')?><br /><br />
+			<?=form_label(lang('use_default_title'), 'use_default_title')?><br />
+			<?=form_radio('use_default_title', 'yes', ($use_default_title == 'yes') ? TRUE : FALSE, 'id="use_default_title_1_yes"')?> <?=form_label(lang('yes'), 'use_default_title_1_yes')?><br />
+			<?=form_radio('use_default_title', 'no', ($use_default_title == 'no' || empty($use_default_title)) ? TRUE : FALSE, 'id="use_default_title_1_no"')?> <?=form_label(lang('no'), 'use_default_title_1_no')?>
 		</p>
-		
+		<hr />
 		<p style="margin-bottom:15px;">
-			<?=form_label(lang('default_keywords'), 'default_keywords')?> <?=form_input('default_keywords', $default_keywords, 'id="default_keywords"')?>
+			<?=form_label(lang('default_keywords'), 'default_keywords')?> <?=form_input('default_keywords', $default_keywords, 'id="default_keywords"')?><br /><br />
+			<?=form_label(lang('use_default_keywords'), 'use_default_keywords')?><br />
+			<?=form_radio('use_default_keywords', 'yes', ($use_default_keywords == 'yes') ? TRUE : FALSE, 'id="use_default_keywords_2_yes"')?> <?=form_label(lang('yes'), 'use_default_keywords_2_yes')?><br />
+			<?=form_radio('use_default_keywords', 'no', ($use_default_keywords == 'no' || empty($use_default_keywords)) ? TRUE : FALSE, 'id="use_default_keywords_2_no"')?> <?=form_label(lang('no'), 'use_default_keywords_2_no')?>
 		</p>
-		
+		<hr />
 		<p style="margin-bottom:15px;">
-			<?=form_label(lang('default_description'), 'default_description')?> <?=form_textarea('default_description', $default_description, 'id="default_description"')?>
+			<?=form_label(lang('default_description'), 'default_description')?> <?=form_textarea('default_description', $default_description, 'id="default_description"')?><br /><br />
+			<?=form_label(lang('use_default_description'), 'use_default_description')?><br />
+			<?=form_radio('use_default_description', 'yes', ($use_default_description == 'yes') ? TRUE : FALSE, 'id="use_default_description_3_yes"')?> <?=form_label(lang('yes'), 'use_default_description_3_yes')?><br />
+			<?=form_radio('use_default_description', 'no', ($use_default_description == 'no' || empty($use_default_description)) ? TRUE : FALSE, 'id="use_default_description_3_no"')?> <?=form_label(lang('no'), 'use_default_description_3_no')?>
 		</p>
 	<?=	form_fieldset_close()?>
 	

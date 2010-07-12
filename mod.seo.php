@@ -20,7 +20,10 @@ class Seo {
 						  'robots' => 'follow,index',
 						  'default_title' => '',
 						  'default_keywords' => '',
-						  'default_description' => ''
+						  'default_description' => '',
+						  'use_default_title' => '',
+						  'use_default_keywords' => '',
+						  'use_default_description' => ''
 						  );
 	
 	function Seo() {
@@ -65,7 +68,13 @@ class Seo {
 			
 			return $this->return_data = $final_prepend.htmlentities($res->row('title')).$final_append;
 		}
-		return $this->return_data = $this->options['default_title'];
+		
+		//Revert to default
+		if(isset($this->options['use_default_title']) && $this->options['use_default_title'] == 'yes') {
+			return $this->return_data = $this->options['default_title'];
+		} else {
+			return '';
+		}
 	}
 	
 	function description() {
@@ -77,7 +86,13 @@ class Seo {
 		if($res->num_rows() > 0) {
 			return $this->return_data = htmlentities($res->row('description'));
 		}
-		return $this->return_data = $this->options['default_description'];
+		
+		//Revert to default
+		if(isset($this->options['use_default_description']) && $this->options['use_default_description'] == 'yes') {
+			return $this->return_data = $this->options['default_description'];
+		} else {
+			return '';
+		}
 	}
 	
 	function keywords() {
@@ -89,7 +104,13 @@ class Seo {
 		if($res->num_rows() > 0) {
 			return $this->return_data = htmlentities($res->row('keywords'));
 		}
-		return $this->return_data = $this->options['default_keywords'];
+		
+		//Revert to default
+		if(isset($this->options['use_default_keywords']) && $this->options['use_default_keywords'] == 'yes') {
+			return $this->return_data = $this->options['default_keywords'];
+		} else {
+			return '';
+		}
 	}
 	
 	function canonical() {
