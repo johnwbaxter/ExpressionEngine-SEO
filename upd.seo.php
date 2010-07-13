@@ -39,7 +39,8 @@ class Seo_upd {
 				`language` VARCHAR( 255 ) NOT NULL DEFAULT  'en',
 				`title` TEXT NULL ,
 				`keywords` TEXT NULL ,
-				`description` TEXT NULL )";
+				`description` TEXT NULL )
+				CHARACTER SET utf8 COLLATE utf8_general_ci;";
 		
 		$this->EE->db->query($table);
 		
@@ -47,7 +48,8 @@ class Seo_upd {
 						 `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY ,
 						 `key` VARCHAR( 255 ) NOT NULL ,
 						 `value` TEXT NOT NULL
-						 );";
+						 )
+						 CHARACTER SET utf8 COLLATE utf8_general_ci;";
 						 
 		$this->EE->db->query($options_table);
 		

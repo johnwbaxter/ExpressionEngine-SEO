@@ -66,7 +66,7 @@ class Seo {
 				$final_append = $this->options['append_to_title'];
 			}
 			
-			return $this->return_data = $final_prepend.htmlentities($res->row('title')).$final_append;
+			return $this->return_data = $final_prepend.($res->row('title')).$final_append; //removed htmlentities()
 		}
 		
 		//Revert to default
@@ -84,7 +84,7 @@ class Seo {
 		$sql = "SELECT `description` FROM `exp_seo_data` WHERE `entry_id` = ".$this->EE->db->escape_str($entry_id)." AND `site_id` = ".$this->EE->db->escape_str($site_id).";";
 		$res = $this->EE->db->query($sql);
 		if($res->num_rows() > 0) {
-			return $this->return_data = htmlentities($res->row('description'));
+			return $this->return_data = ($res->row('description'));	//removed htmlentities()
 		}
 		
 		//Revert to default
@@ -102,7 +102,7 @@ class Seo {
 		$sql = "SELECT `keywords` FROM `exp_seo_data` WHERE `entry_id` = ".$this->EE->db->escape_str($entry_id)." AND `site_id` = ".$this->EE->db->escape_str($site_id).";";
 		$res = $this->EE->db->query($sql);
 		if($res->num_rows() > 0) {
-			return $this->return_data = htmlentities($res->row('keywords'));
+			return $this->return_data = ($res->row('keywords'));	//removed htmlentities()
 		}
 		
 		//Revert to default

@@ -21,9 +21,9 @@ class Seo_tab {
 			$res = $this->EE->db->query($sql);
 			
 			if($res->num_rows() > 0) {
-				$seo_title = htmlentities($res->row('title'));
-				$seo_keywords = htmlentities($res->row('keywords'));
-				$seo_description = htmlentities($res->row('description'));
+				$seo_title = ($res->row('title'));				//removed htmlentities()
+				$seo_keywords = ($res->row('keywords'));		//removed htmlentities()
+				$seo_description = ($res->row('description'));	//removed htmlentities()
 			}
 		}
 		
@@ -130,6 +130,7 @@ class Seo_tab {
 	function publish_data_delete_db($params)
 	{
 		//delete data when entry deleted
+		//This should check for site id?
 		foreach($params["entry_ids"] as $k => $id) {
 			$sql = "DELETE FROM `exp_seo_data` WHERE `entry_id` = ".$this->EE->db->escape_str($id).";";
 			$this->EE->db->query($sql);
